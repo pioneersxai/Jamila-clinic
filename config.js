@@ -1,172 +1,196 @@
 /**
  * ============================================================
- *  BRAND CONFIG — Edit ONLY this file to fully rebrand the site
+ *  CLIENT CONFIG — Edit ONLY this file to rebrand this site
+ *  for a new clinic/business client.
  *  One file. One client. 15 minutes.
+ *
+ *  To reuse for a new client:
+ *  1. Duplicate this whole folder (e.g. "jamela" -> "new-client")
+ *  2. Edit every value below
+ *  3. Change the gold accent color in client-theme.css (:root --primary-red)
+ *  4. Done — layout, animations, and structure never change.
  * ============================================================
  */
 
-const BRAND = {
+const CLIENT = {
 
   // ── Core Identity ─────────────────────────────────────────
-  name:        "PioneersX",                          // Brand name shown everywhere
-  tagline:     "مساعدك الشخصي بالذكاء الاصطناعي",   // Hero subtitle
-  description: "منصة الذكاء الاصطناعي الأكثر تقدماً في المنطقة",
-
-  // ── Colors (also update --primary-red in css/style.css) ───
-  primaryColor: "#ff1e1e",   // Main brand color — match with CSS :root
-
-  // ── Logo ──────────────────────────────────────────────────
-  logoLetter:  "X",          // Single letter shown in navbar logo
-  logoFile:    "",           // Optional: path to image logo, e.g. "assets/logo.png"
-  faviconColor: "%23ff1e1e", // URL-encoded hex for SVG favicon (# = %23)
+  name:        "Jamela",
+  nameArabic:  "چميلة",
+  tagline:     "چميلة.. عيشي الفرق",
+  pageTitle:   "عيادات چميلة | Jamela Clinics - سوهاج",
+  metaDescription: "عيادات چميلة - عيادات متخصصة في العناية بالبشرة والتجميل الطبي والتغذية العلاجية، شارع الجمهورية، سوهاج. چميلة.. عيشي الفرق.",
 
   // ── Contact ───────────────────────────────────────────────
-  phone:      "+966 54 770 5498",
-  whatsapp:   "9665477705498",   // No + or spaces — used in wa.me links
-  email:      "info@pioneersx.store",
-  city:       "الرياض، المملكة العربية السعودية",
+  phones:     ["011 49 88 1909", "0155 63 86 734", "012 02 99999 1"],
+  whatsapp:   "201149881909",     // TODO Yousef: confirm which of the 3 numbers is on WhatsApp
+  email:      "",                 // TODO Yousef: real email if any
+  address:    "ش الجمهورية، برج صلاح ضيف الله الذهبي، أعلى ماكدونالدز، سوهاج",
+  facebook:   "https://web.facebook.com/jamelaclinics",
 
-  // ── API ───────────────────────────────────────────────────
-  apiBase:    "https://pioneersx-backend.onrender.com/api",
-
-  // ── Domain ────────────────────────────────────────────────
-  domain:     "https://pioneersxai.github.io/pioneersx_webar",
-
-  // ── Social Links (set to "" to hide) ─────────────────────
-  social: {
-    twitter:   "https://x.com/pioneersxai",
-    linkedin:  "https://www.linkedin.com/company/pioneersx",
-    instagram: "https://www.instagram.com/pioneersxai/",
-    youtube:   "https://www.youtube.com/@pioneersxai",
-    tiktok:    "https://www.tiktok.com/@pioneersxai",
+  // ── Hero Section ──────────────────────────────────────────
+  hero: {
+    title:       "رعاية طبية وتجميلية متكاملة في قلب سوهاج",
+    subtitle:    "چميلة.. عيشي الفرق",
+    description: "عيادات متخصصة في العناية بالبشرة والتجميل الطبي والتغذية العلاجية، بإشراف نخبة من الأطباء المتخصصين، وبالتعاون مع أفضل العلامات التجميلية والطبية",
+    badges: [
+      { icon: "fas fa-user-doctor", text: "أطباء متخصصون" },
+      { icon: "fas fa-award",       text: "منتجات وتقنيات عالمية" },
+      { icon: "fas fa-heart",       text: "بيئة آمنة ومريحة" },
+    ],
+    primaryCta: { text: "احجزي موعدك الآن", action: "whatsapp" },
+    secondaryCta: { text: "تابعينا على فيسبوك", action: "facebook" },
   },
 
-  // ── Language & Direction ──────────────────────────────────
-  lang: "ar",    // "ar" for Arabic, "en" for English
-  dir:  "rtl",   // "rtl" for Arabic, "ltr" for English
+  // ── Stats Strip ───────────────────────────────────────────
+  stats: [
+    { number: "3+",       label: "أطباء متخصصون",         sublabel: "بشرة، تجميل، وتغذية علاجية" },
+    { number: "2+",       label: "علامات عالمية شريكة",    sublabel: "Lixora · Solumart · Eva Pharma" },
+    { number: "أسبوعياً", label: "فعاليات صحية وتجميلية", sublabel: "كشوفات وهدايا مع كل فعالية" },
+    { number: "سوهاج",    label: "شارع الجمهورية",         sublabel: "برج ضيف الله الذهبي" },
+  ],
 
-  // ── Products (shown in products/features section) ─────────
-  products: [
+  // ── Services (features grid) ─────────────────────────────
+  services: [
+    { icon: "fas fa-spa",            title: "العناية بالبشرة والتجميل الطبي", description: "بروتوكولات عناية متقدمة وتقنيات تجميل طبي بإشراف متخصصين، بالتعاون مع علامات عالمية مثل Lixora" },
+    { icon: "fas fa-leaf",           title: "التغذية العلاجية وإدارة الوزن", description: "برامج متابعة غذائية وعلاج طبيعي بإشراف طبي، مع قياس دقيق لمكونات الجسم" },
+    { icon: "fas fa-hand-sparkles",  title: "العناية الجلدية المتقدمة", description: "تشخيص ومتابعة حالات البشرة، ومنتجات عناية منزلية موصى بها طبياً" },
+    { icon: "fas fa-syringe",        title: "الفيلر وحقن التجميل", description: "جلسات فيلر وSkin Booster بإشراف طبي كامل ومعايير سلامة عالية" },
+    { icon: "fas fa-weight-scale",   title: "قياس تكوين الجسم", description: "أحدث أجهزة InBody لقياس نسبة الدهون والعضلات والماء بدقة" },
+    { icon: "fas fa-user-doctor",    title: "استشارات طبية متخصصة", description: "جلسات استشارة فردية لتحديد أنسب خطة علاج أو عناية لكل حالة" },
+  ],
+
+  // ── Doctors / Team (pricing-grid layout reused) ──────────
+  doctors: [
     {
-      id:          "assistx",
-      name:        "AssistX",
-      tagline:     "مساعد ذكي لعملك",
-      description: "مساعد ذكاء اصطناعي متخصص يفهم طبيعة عملك ويتفاعل مع عملائك بكفاءة عالية",
-      icon:        "fas fa-robot",
-      link:        "assistx/index.html",
+      initial: "أ", name: "د. أمنية عبدالله", role: "العناية بالبشرة", featured: false,
+      focus: ["بروتوكولات عناية متقدمة بالبشرة", "شراكة علامة Solumart", "استشارات فردية"],
     },
     {
-      id:          "analyticsx",
-      name:        "AnalyticsX",
-      tagline:     "تحليلات ذكية لقراراتك",
-      description: "منصة تحليل بيانات مدعومة بالذكاء الاصطناعي تحول أرقامك إلى قرارات استراتيجية",
-      icon:        "fas fa-chart-line",
-      link:        "analyticsx/index.html",
+      initial: "ف", name: "د. فريدة سامي", role: "العلاج الطبيعي والتغذية العلاجية", featured: true,
+      focus: ["برامج إدارة الوزن", "قياس تكوين الجسم InBody", "متابعة دورية"],
     },
     {
-      id:          "clinix",
-      name:        "CliniX",
-      tagline:     "الذكاء الاصطناعي للقطاع الطبي",
-      description: "حلول ذكاء اصطناعي متخصصة للعيادات والمستشفيات لتحسين تجربة المريض",
-      icon:        "fas fa-heartbeat",
-      link:        "clinix/index.html",
+      initial: "ر", name: "د. رحاب محبوب الله", role: "الجلدية والتجميل", featured: false,
+      focus: ["فيلر وSkin Booster", "شراكة علامة Lixora", "حماية ونضارة البشرة"],
     },
   ],
 
-  // ── Pricing Tiers ─────────────────────────────────────────
-  pricing: [
-    {
-      name:     "الأساسية",
-      price:    "499",
-      currency: "ر.س",
-      period:   "شهرياً",
-      features: ["مساعد ذكي واحد", "1000 رسالة/شهر", "دعم فني", "تقارير أساسية"],
-      cta:      "ابدأ الآن",
-      featured: false,
-    },
-    {
-      name:     "الاحترافية",
-      price:    "999",
-      currency: "ر.س",
-      period:   "شهرياً",
-      features: ["3 مساعدين ذكيين", "10,000 رسالة/شهر", "دعم أولوية", "تحليلات متقدمة", "تكامل API"],
-      cta:      "الأكثر طلباً",
-      featured: true,
-    },
-    {
-      name:     "المؤسسية",
-      price:    "اتصل بنا",
-      currency: "",
-      period:   "",
-      features: ["مساعدين غير محدودين", "رسائل غير محدودة", "مدير حساب مخصص", "تخصيص كامل", "SLA مضمون"],
-      cta:      "تواصل معنا",
-      featured: false,
-    },
-  ],
+  // ── Final CTA ─────────────────────────────────────────────
+  cta: {
+    title:    "جاهزة تعيشي الفرق؟",
+    subtitle: "احجزي موعدك الآن مع أطباء عيادات چميلة في سوهاج",
+  },
 
 };
 
-// ── Auto-apply brand to page ───────────────────────────────
-// Runs on DOMContentLoaded and replaces all [data-brand] elements
+// ── Auto-render engine — do not edit below this line ────────
 document.addEventListener("DOMContentLoaded", () => {
 
-  // Page title
-  document.title = `${BRAND.name} - ${BRAND.tagline}`;
+  document.title = CLIENT.pageTitle;
+  document.querySelector('meta[name="description"]')?.setAttribute("content", CLIENT.metaDescription);
 
-  // Lang & direction
-  document.documentElement.lang = BRAND.lang;
-  document.documentElement.dir  = BRAND.dir;
+  const wa = () => window.open(`https://wa.me/${CLIENT.whatsapp}`, "_blank");
+  const fb = () => window.open(CLIENT.facebook, "_blank");
+  const actionFns = { whatsapp: wa, facebook: fb };
 
-  // Replace all elements that have data-brand attributes
-  const replacements = {
-    "brand-name":        BRAND.name,
-    "brand-tagline":     BRAND.tagline,
-    "brand-description": BRAND.description,
-    "brand-phone":       BRAND.phone,
-    "brand-email":       BRAND.email,
-    "brand-city":        BRAND.city,
-    "brand-whatsapp":    BRAND.whatsapp,
-  };
+  // Hero
+  document.querySelectorAll("[data-hero-title]").forEach(el => el.textContent = CLIENT.hero.title);
+  document.querySelectorAll("[data-hero-subtitle]").forEach(el => el.textContent = CLIENT.hero.subtitle);
+  document.querySelectorAll("[data-hero-description]").forEach(el => el.textContent = CLIENT.hero.description);
 
-  Object.entries(replacements).forEach(([key, value]) => {
-    document.querySelectorAll(`[data-brand="${key}"]`).forEach(el => {
-      el.textContent = value;
-    });
+  const badgesEl = document.getElementById("heroBadges");
+  if (badgesEl) {
+    badgesEl.innerHTML = CLIENT.hero.badges.map(b => `
+      <div class="badge"><i class="${b.icon}"></i><span>${b.text}</span></div>
+    `).join("");
+  }
+
+  document.querySelectorAll("[data-cta='primary']").forEach(el => {
+    el.textContent = CLIENT.hero.primaryCta.text;
+    el.onclick = actionFns[CLIENT.hero.primaryCta.action];
+  });
+  document.querySelectorAll("[data-cta='secondary']").forEach(el => {
+    el.textContent = CLIENT.hero.secondaryCta.text;
+    el.onclick = actionFns[CLIENT.hero.secondaryCta.action];
   });
 
-  // WhatsApp links
-  document.querySelectorAll("[data-whatsapp-link]").forEach(el => {
-    el.href = `https://wa.me/${BRAND.whatsapp}`;
+  // Stats
+  const statsEl = document.getElementById("statsGrid");
+  if (statsEl) {
+    statsEl.innerHTML = CLIENT.stats.map(s => `
+      <div class="stat-card fade-in">
+        <div class="stat-number">${s.number}</div>
+        <div class="stat-label">${s.label}</div>
+        <div class="stat-sublabel">${s.sublabel}</div>
+      </div>
+    `).join("");
+  }
+
+  // Services
+  const servicesEl = document.getElementById("servicesGrid");
+  if (servicesEl) {
+    servicesEl.innerHTML = CLIENT.services.map(s => `
+      <div class="feature-card fade-in">
+        <div class="feature-icon"><i class="${s.icon}"></i></div>
+        <h3>${s.title}</h3>
+        <p>${s.description}</p>
+      </div>
+    `).join("");
+  }
+
+  // Doctors
+  const doctorsEl = document.getElementById("doctorsGrid");
+  if (doctorsEl) {
+    doctorsEl.innerHTML = CLIENT.doctors.map(d => `
+      <div class="pricing-card fade-in ${d.featured ? "popular" : ""}">
+        ${d.featured ? '<div class="pricing-badge">الأكثر طلباً</div>' : ""}
+        <div class="doctor-avatar">${d.initial}</div>
+        <h3>${d.name}</h3>
+        <span class="doctor-role">${d.role}</span>
+        <ul class="pricing-features">
+          ${d.focus.map(f => `<li>✨ ${f}</li>`).join("")}
+        </ul>
+      </div>
+    `).join("");
+  }
+
+  // CTA section
+  document.querySelectorAll("[data-cta-title]").forEach(el => el.textContent = CLIENT.cta.title);
+  document.querySelectorAll("[data-cta-subtitle]").forEach(el => el.textContent = CLIENT.cta.subtitle);
+  document.querySelectorAll("[data-final-cta='primary']").forEach(el => {
+    el.textContent = "احجزي عبر واتساب";
+    el.onclick = wa;
+  });
+  document.querySelectorAll("[data-final-cta='secondary']").forEach(el => {
+    el.textContent = "تواصلي معنا على فيسبوك";
+    el.onclick = fb;
   });
 
-  // Phone links
-  document.querySelectorAll("[data-phone-link]").forEach(el => {
-    el.href = `tel:${BRAND.phone}`;
-  });
+  // Footer / contact
+  document.querySelectorAll("[data-brand-name]").forEach(el => el.textContent = CLIENT.name);
+  document.querySelectorAll("[data-brand-name-arabic]").forEach(el => el.textContent = CLIENT.nameArabic);
+  document.querySelectorAll("[data-brand-tagline]").forEach(el => el.textContent = CLIENT.tagline);
+  document.querySelectorAll("[data-phone]").forEach(el => el.textContent = CLIENT.phones.join(" | "));
+  document.querySelectorAll("[data-address]").forEach(el => el.textContent = CLIENT.address);
+  document.querySelectorAll("[data-facebook-link]").forEach(el => el.href = CLIENT.facebook);
+  document.querySelectorAll("[data-whatsapp-link]").forEach(el => el.href = `https://wa.me/${CLIENT.whatsapp}`);
 
-  // Email links
-  document.querySelectorAll("[data-email-link]").forEach(el => {
-    el.href = `mailto:${BRAND.email}`;
-  });
+  // Re-observe fade-in elements injected above — the shared engine's
+  // ScrollAnimations only observes elements present at its own DOMContentLoaded
+  // run, which fires before this script's dynamic content exists.
+  if ("IntersectionObserver" in window) {
+    const lateObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add("visible");
+      });
+    }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
 
-  // Social links
-  const socialMap = {
-    "social-twitter":   BRAND.social.twitter,
-    "social-linkedin":  BRAND.social.linkedin,
-    "social-instagram": BRAND.social.instagram,
-    "social-youtube":   BRAND.social.youtube,
-    "social-tiktok":    BRAND.social.tiktok,
-  };
-  Object.entries(socialMap).forEach(([key, url]) => {
-    document.querySelectorAll(`[data-brand="${key}"]`).forEach(el => {
-      if (!url) { el.style.display = "none"; return; }
-      el.href = url;
-    });
-  });
-
-  // Logo letter
-  document.querySelectorAll("[data-brand='logo-letter']").forEach(el => {
-    el.textContent = BRAND.logoLetter;
-  });
+    document.querySelectorAll("#statsGrid .fade-in, #servicesGrid .fade-in, #doctorsGrid .fade-in")
+      .forEach(el => lateObserver.observe(el));
+  } else {
+    document.querySelectorAll("#statsGrid .fade-in, #servicesGrid .fade-in, #doctorsGrid .fade-in")
+      .forEach(el => el.classList.add("visible"));
+  }
 
 });
