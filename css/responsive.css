@@ -737,11 +737,6 @@
 
 /* ===================================
    DARK MODE SUPPORT
+   Disabled for this client — Jamela uses a fixed light
+   sand/navy/gold theme regardless of visitor OS preference.
    ================================== */
-@media (prefers-color-scheme: dark) {
-    /* Already dark by default, but can add adjustments if needed */
-    :root {
-        --darker-bg: #000000;
-        --dark-bg: #0a0a0a;
-    }
-}
